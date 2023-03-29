@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title> Empa-Pick</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>EMPA-PICK</h1>
+        <h4>choose your empanadas with friends</h4><!--descripcion de la app-->
+    </header>
+    <main>
+        <section id="pantalla-1" style="border: solid 1px black"><!--pantalla 1-->
+            <div class="pregunta">
+                <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->
+                <div><button class="menos" type="button" onClick="restar(this)">-</button><input class="number" type="number" value='0'><button class="mas"
+                        type="button" onClick="sumar(this)">+</button></div>
+            </div>
+            <div class="pregunta">
+                <p>valor de cada empanada</p> <!-- valor de cada empanada-->
+                <input type="number">
+            </div>
+            <div>
+                <button class="button-sig" onClick="siguiente()">Siguiente</button>
+            </div>
+        </section>
+        <section id="seleccion" style="border: solid 1px black"><!--pantalla 2 / seleccion-->
+            <h3></h3> <!-- instrucciones -->
+            <label for="nombre" class="empanada"><input id="nombre" placeholder="Nombre:" name="nombre"
+                    class="empanada"></label>
+            <ul>
+                <li>
+                    <label for="carne-suave" class="empanada">Carne suave</label><button class="menos" type="button" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
+                </li>
+
+                <li><label for="" class="empanada">Carne cortada a cuchillo</label><button class="menos" type="button"
+                        onClick="restar(this)">-</button><input class="number"  name="carne-cortada" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">Carne picante</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-picante" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">Pollo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="pollo" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">Pollo al verdeo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="pollo-verdeo" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">Jamón y queso</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">Cebolla y queso</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">pollo al verdeo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">pollo al verdeo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">pollo al verdeo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+
+                <li><label for="" class="empanada">pollo al verdeo</label><button type="button" class="menos" 
+                        onClick="restar(this)">-</button><input class="number"  name="carne-suave" class="empanada" type="number"
+                        value='0'><button class="mas"  type="button" onClick="sumar(this)">+</button></li>
+                <!--custom-->
+            </ul>
+            <button class="button-sig" onClick="siguiente()">Siguiente</button>
+        </section style="border: solid 1px black">
+        <section id="resumen"><!--pantalla 3 / resumen-->
+
+        </section>
+    </main>
+</body>
+<script type="text/javascript">
+    var pedidoTotal=[];
+    var inputs, index;
+    inputs = document.getElementsByClassName('empanada');
+    function sumar(el) {
+        var cant = el.previousSibling.valueAsNumber;
+        cant = cant + 1;
+        el.previousSibling.valueAsNumber = cant;
+    };
+    function restar(el) {
+        if (el.nextSibling.valueAsNumber < 1) {
+            return
+        } else {
+            el.nextSibling.valueAsNumber = el.nextSibling.valueAsNumber - 1;
+        }
+    };
+
+    function contador(inputs) {
+        var index,pedidoComensal=[];
+        for (index = 0; index < inputs.length; ++index) {
+            if ((index % 2) == 0 || index == 0){
+                if (inputs[index+1].value != 0 ){
+                    pedidoComensal[index]=inputs[index].innerText;
+                }
+            }else if (inputs[index].value != 0) {
+                pedidoComensal[index]=inputs[index].value;
+            }
+        }
+        pedidoTotal.push(pedidoComensal)
+    };
+
+    function siguiente(input){
+        var inputs,index;
+        inputs = document.getElementsByClassName('empanada');
+        contador(inputs);
+        for (index = 0; index < inputs.length; ++index) {
+            if(inputs[index].type=='number'){
+                inputs[index].value=0
+        } else{
+                inputs[index].value = null;
+        }
+        };
+    }
+    pedidoTotal.forEach(pedido => {
+            console.log(pedido)
+        });
+    // function imprimirTotal() {
+    //     console.log('sarsa');
+    // };
+</script>
+
+</html>
