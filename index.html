@@ -20,16 +20,16 @@
     <main>
         <section id="pantalla-1" style="border: solid 1px black"><!--pantalla 1-->
             <div class="pregunta">
-                <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->
-                <div><button class="menos" type="button" onClick="restar(this)"><i class="fa-solid fa-minus"></i></button><input class="number" type="number" value='1'><button class="mas"
+                <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->                
+                <div><button class="menos" type="button" onClick="restar(this)"><i class="fa-solid fa-minus"></i></button><input  id="comensales" class="number" type="number" value='1'><button class="mas"
                         type="button" onClick="sumar(this)"><i class="fa-solid fa-plus"></i></button></div>
             </div>
             <div class="pregunta">
                 <p>valor de cada empanada</p> <!-- valor de cada empanada-->
-                <input type="number">
+                <input type="number" id="comensales2">
             </div>
             <div>
-                <button class="button-sig" onClick="siguiente()">Siguiente</button>
+                <button class="button-sig" onClick="getVals(this)">Siguiente</button>
             </div>
         </section>
         <section id="seleccion" style="border: solid 1px black"><!--pantalla 2 / seleccion-->
@@ -92,8 +92,10 @@
     </main>
 </body>
 <script type="text/javascript">
-    var pedidoTotal=[];
-    var inputs, index;
+    var pedidoTotal,valores=[];
+    var inputs, 
+        index;
+    
     inputs = document.getElementsByClassName('empanada');
     function sumar(el) {
         var cant = el.previousSibling.valueAsNumber;
@@ -122,7 +124,7 @@
         pedidoTotal.push(pedidoComensal)
     };
 
-    function siguiente(input){
+    function siguiente(input,valores){
         var inputs,index;
         inputs = document.getElementsByClassName('empanada');
         contador(inputs);
@@ -134,9 +136,15 @@
         }
         };
     }
-    pedidoTotal.forEach(pedido => {
-            console.log(pedido)
-        });
+    function getVals(el){
+        valores[0] = document.getElementById('comensales');
+        valores[1] = document.getElementById('comensales2');
+
+        console.log(valores);
+    }
+    // pedidoTotal.forEach(pedido => {
+            // console.log(pedido)
+        // });
     // function imprimirTotal() {
     //     console.log('sarsa');
     // };
