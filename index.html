@@ -7,8 +7,9 @@
     <title> Empa-Pick</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron:wght@400;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/270cc5acdb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,8 +21,8 @@
         <section id="pantalla-1" style="border: solid 1px black"><!--pantalla 1-->
             <div class="pregunta">
                 <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->
-                <div><button class="menos" type="button" onClick="restar(this)">-</button><input class="number" type="number" value='0'><button class="mas"
-                        type="button" onClick="sumar(this)">+</button></div>
+                <div><button class="menos" type="button" onClick="restar(this)"><i class="fa-solid fa-minus"></i></button><input class="number" type="number" value='1'><button class="mas"
+                        type="button" onClick="sumar(this)"><i class="fa-solid fa-plus"></i></button></div>
             </div>
             <div class="pregunta">
                 <p>valor de cada empanada</p> <!-- valor de cada empanada-->
@@ -34,7 +35,7 @@
         <section id="seleccion" style="border: solid 1px black"><!--pantalla 2 / seleccion-->
             <h3></h3> <!-- instrucciones -->
             <label for="nombre" class="empanada"><input id="nombre" placeholder="Nombre:" name="nombre"
-                    class="empanada"></label>
+                    class=" nombre empanada"></label>
             <ul>
                 <li>
                     <label for="carne-suave" class="empanada">Carne suave</label><button class="menos" type="button" 
