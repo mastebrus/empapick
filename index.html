@@ -258,15 +258,18 @@
 
       pedidoTotal.forEach((pedido) => {
         var divComensal = document.createElement("div");
+        divComensal.classList.add("comensal");
         var nombreComensal = document.createElement("label");
         nombreComensal.innerText = pedido.nombre;
         divComensal.appendChild(nombreComensal);
+        var valor_comensal = document.createElement("input");
+        let total_Comensal = 0;
         pedido.empanadas.forEach((p) => {
-          let total_Comensal = 0;
           total_Empas += p.cantidad * valores[1];
           total_Comensal += p.cantidad * valores[1];
-          var valor_comensal = document.createElement("input");
+
           valor_comensal.value = total_Comensal;
+          ("");
           divComensal.appendChild(valor_comensal);
           div.appendChild(divComensal);
         });
@@ -274,10 +277,11 @@
       document.getElementById("seleccion").style.display = "none";
 
       var valor_total = document.createElement("label");
-
-      valor_total.innerText = total_Empas;
+      var input_total = document.createElement("input");
+      valor_total.innerText = "Total";
+      input_total.value = total_Empas;
       div.appendChild(valor_total);
-
+      div.appendChild(input_total);
       document.getElementById("resumen").appendChild(div);
 
       return;
