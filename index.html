@@ -94,7 +94,8 @@
 <script type="text/javascript">
     var pedidoTotal,valores=[];
     var inputs, 
-        index;
+        index,
+        vueltas=0;
     
     inputs = document.getElementsByClassName('empanada');
     function sumar(el) {
@@ -113,33 +114,39 @@
     function contador(inputs) {
         var index,pedidoComensal=[];
         for (index = 0; index < inputs.length; ++index) {
-            if ((index % 2) == 0 || index == 0){
-                if (inputs[index+1].value != 0 ){
+            if (index != 0){
+                if ((index % 2) == 0 ){
                     pedidoComensal[index]=inputs[index].innerText;
+                }else {
+                    pedidoComensal[index]=inputs[index].value;
                 }
-            }else if (inputs[index].value != 0) {
-                pedidoComensal[index]=inputs[index].value;
             }
+            console.log(pedidoComensal[index])
         }
         pedidoTotal.push(pedidoComensal)
     };
 
-    function siguiente(input,valores){
-        var inputs,index;
+    function siguiente(){
+        
+        if (vueltas > valores[0]){
+            informarTotales();
+        }
+        var index;
         inputs = document.getElementsByClassName('empanada');
         contador(inputs);
         for (index = 0; index < inputs.length; ++index) {
             if(inputs[index].type=='number'){
-                inputs[index].value=0
+               inputs[index].value=0;
         } else{
-                inputs[index].value = null;
+            inputs[index].value = null;
         }
         };
     }
     function getVals(el){
-        valores[0] = document.getElementById('comensales');
-        valores[1] = document.getElementById('comensales2');
-
+        valores[0] = document.getElementById('comensales').value;
+        valores[1] = document.getElementById('comensales2').value;
+        document.getElementById('seleccion').style.display="flex";
+        // document.getElementById('pantalla-1').style.display="none";
         console.log(valores);
     }
     // pedidoTotal.forEach(pedido => {
@@ -148,6 +155,10 @@
     // function imprimirTotal() {
     //     console.log('sarsa');
     // };
+    function informarTotales(){
+        console('informa los totales');
+        return;
+    }
 </script>
 
 </html>
