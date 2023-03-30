@@ -28,8 +28,8 @@
                             class="fa-solid fa-minus"></i></button><input id="comensales" class="number" type="number"
                         value='1' readonly="readonly"><button class="mas" type="button" onClick="sumar(this)"><i
                             class="fa-solid fa-plus"></i></button></div>
-                <div><i class="fa-solid fa-user-astronaut fa-xl nombre" style="color:#ffffff"></i></div>
             </div>
+            <div id="user"><i class="fa-solid fa-user-astronaut fa-2xl nombre" style="color:#ffffff"></i></div>
             <div class="pregunta">
                 <p class="minimo">Según el lugar donde van a pedir, ingrese</p>
                 <p>valor de cada empanada</p> <!-- valor de cada empanada-->
@@ -138,10 +138,10 @@
                 </li></span>
                 <!--custom-->
             </ul>
-            <button class="button-sig" onClick="siguiente()">Siguiente</button>
+            <button id="button-seleccion" class="button-sig" onClick="siguiente()">Siguiente</button>
         </section style="border: solid 1px black">
         <section id="resumen"><!--pantalla 3 / resumen-->
-
+            <h3>RESUMEN</h3>
         </section>
     </main>
 </body>
@@ -154,22 +154,34 @@
 
     inputs = document.getElementsByClassName('empanada');
 
-    //const comensales = document.getElementById('comensales').value;
-    //comensales.addEventListener("change",(event)=>{
+    // const comensales = document.getElementById('comensales').value;
+    // comensales.addEventListener("change",(event)=>{
     //    console.log(event);
-    //const result=true});
+    // const result=true});
 
     function sumar(el) {
       var cant = el.previousSibling.valueAsNumber;
       cant = cant + 1;
-      el.previousSibling.valueAsNumber = cant;
+      
+        if (cant<=15){
+            el.previousSibling.valueAsNumber = cant;
+        var bichito=document.createElement('i');
+        bichito.classList.add("fa-solid","fa-user-astronaut","fa-2xl")
+        document.getElementById('user').appendChild(bichito);  
+        }
+        
+
     }
     function restar(el) {
+        var user=document.getElementById('user');
       if (el.nextSibling.valueAsNumber < 1) {
         return;
       } else {
         el.nextSibling.valueAsNumber = el.nextSibling.valueAsNumber - 1;
+        user.removeChild(user.lastElementChild)
       }
+
+    
     }
     function Empanada(nombre, cantidad) {
       this.nombre = nombre;
@@ -226,7 +238,10 @@
     function setFinalizar() {
       var boton = document.getElementById("button-seleccion");
       boton.innerText = "Finalizar";
-      boton.attributes.onclick.value = "informarTotales()";
+    //   boton.attributes.onclick.value = "informarTotales()";
+      document.getElementById("resumen").style.display = "flex";
+      document.getElementById("seleccion").style.display = "none";
+      informarTotales();
     }
 
     function getVals(el) {
@@ -235,8 +250,10 @@
       document.getElementById("seleccion").style.display = "flex";
       document.getElementById("pantalla-1").style.display = "none";
       document.getElementById("header").style.height = "100px";
+      document.getElementById("header").style.marginTop = "0";
       document.getElementById('main').style.marginTop = "100px";
         document.getElementById('back-header').style.height = "100px" 
+        document.getElementById("back-header").style.marginTop = "0";
         document.getElementById('h4').style.display = "none";
     }
 
@@ -278,5 +295,6 @@
 
       return;
     }
+    
   </script>
 </html>

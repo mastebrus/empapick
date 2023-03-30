@@ -9,21 +9,21 @@ html {
     background-color: var(--backgroundcolor);
     color:white;
     text-shadow: 4px 3px 2px var(--shadow);
-    min-width: 500px;
+    min-width: 300px;
 }
 body{
-
     margin: auto;
     max-width: 600px;
     position: relative;
     
 }
 header, #back-header {
-    margin: auto;
     margin-top: 50px;
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 596px;
+    min-width: 300px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -33,9 +33,9 @@ header, #back-header {
 }
 header{
     z-index: 1;
-    margin-top: 50px;
     border: 2px solid white;
 }
+
 h1{
     font-family: 'Orbitron', sans-serif;
     font-size:2.5rem;
@@ -51,11 +51,9 @@ h4{
 }
 main{
     /* position: relative; */
-    margin-top: 204px;
-    min-width: 410px;
-
-    
+    margin-top: 244px;
 }
+
 #pantalla-1{
     border: 2px solid white;
     max-width: 600px;
@@ -94,6 +92,14 @@ input.number{
 input.number:focus{
  outline: none;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 .mas, .menos{
     height: 30px;
     width: 30px;
@@ -103,13 +109,17 @@ input.number:focus{
 button.menos:active, .mas:active {
     background-color: var(--focus);
 }
-i.fa-solid.fa-user-astronaut.fa-xl.nombre {
-    margin-top: 50px;
+
+div#user {
+    display: flex;
+    margin: auto;
+    padding: 10px;
 }
 
 section#seleccion {
     border: 2px solid white;
     max-width: 600px;
+    min-width: 400px;
     margin: auto;
     display: none;
     flex-direction: column;
@@ -144,7 +154,7 @@ input.number.precio:focus {
 .button-sig {
     cursor: pointer;
     display: flex;
-    margin: auto;
+    margin: 10px auto;
     font-family: 'Orbitron';
     font-size: 1rem;
     letter-spacing: 1.5px;
@@ -192,3 +202,23 @@ input.number.precio:focus {
     align-items: center;
     display: flex;
 }
+
+#resumen{
+    display: none;
+}
+
+@media (max-width: 400px) {
+    header, #back-header{
+        margin-top: 0;
+        height: 150px;
+}
+    main{
+        margin-top: 100px;
+        min-width: 400px;
+    }
+    section#seleccion {
+        padding: 5px 5px 40px;
+        min-width: auto;
+ }
+ }
+ 
