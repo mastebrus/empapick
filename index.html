@@ -21,7 +21,7 @@
         <section id="pantalla-1" style="border: solid 1px black"><!--pantalla 1-->
             <div class="pregunta">
                 <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->                
-                <div><button class="menos" type="button" onClick="restar(this)"><i class="fa-solid fa-minus"></i></button><input  id="comensales" class="number" type="number" value='1'><button class="mas"
+                <div><button class="menos" type="button" onClick="restar(this)"><i class="fa-solid fa-minus"></i></button><input  id="comensales" class="number" type="number" value='1' readonly="readonly"><button class="mas"
                         type="button" onClick="sumar(this)"><i class="fa-solid fa-plus"></i></button></div>
             </div>
             <div class="pregunta">
@@ -99,6 +99,12 @@
         vueltas=0;
     
     inputs = document.getElementsByClassName('empanada');
+
+    //const comensales = document.getElementById('comensales').value;
+    //comensales.addEventListener("change",(event)=>{
+    //    console.log(event);
+    //const result=true});
+
     function sumar(el) {
         var cant = el.previousSibling.valueAsNumber;
         cant = cant + 1;
@@ -143,12 +149,15 @@
         }
         };
     }
+   
+
     function getVals(el){
         valores[0] = document.getElementById('comensales').value;
         valores[1] = document.getElementById('comensales2').value;
         document.getElementById('seleccion').style.display="flex";
-        // document.getElementById('pantalla-1').style.display="none";
+        document.getElementById('pantalla-1').style.display="none";
         console.log(valores);
+
     }
     // pedidoTotal.forEach(pedido => {
             // console.log(pedido)
