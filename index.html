@@ -7,7 +7,7 @@
     <title> Empa-Pick</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Montserrat:wght@400;500&family=Orbitron:wght@400;600;900&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/270cc5acdb.js" crossorigin="anonymous"></script>
 </head>
@@ -25,8 +25,9 @@
                         type="button" onClick="sumar(this)"><i class="fa-solid fa-plus"></i></button></div>
             </div>
             <div class="pregunta">
+                <p class="minimo">Según el lugar donde van a pedir, ingrese</p>
                 <p>valor de cada empanada</p> <!-- valor de cada empanada-->
-                <input type="number" id="comensales2">
+                <div><span>$ </span><input class="number precio" type="number" id="comensales2"><span></span></div>
             </div>
             <div>
                 <button class="button-sig" onClick="getVals(this)">Siguiente</button>

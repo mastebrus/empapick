@@ -46,18 +46,20 @@ main{
 }
 #pantalla-1 .pregunta {
     margin-inline: auto;
-    padding: 30px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     justify-items: center;
-    font-size: 1.2rem;
-    
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-family: 'Chakra Petch', sans-serif;
 }
 .pregunta div {
     display: flex;
     width: 50%;
     margin: auto;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 input.number{
     border: none;
@@ -66,20 +68,41 @@ input.number{
     width: 40px;
     text-align: center;
     font-size: 1.5rem;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
    
 }
 .mas, .menos{
     height: 30px;
     width: 30px;
-    border-radius: 50%;
+    border-radius: 20%;
     border: none;
 }
+
 section#seleccion {
     margin: auto;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+.pregunta .minimo {
+    margin-bottom: -15px;
+    font-size: 0.9rem;
+    padding: 0;
+}
+input.number.precio {
+    width: 60px;
+    border-bottom: 2px solid white;
+}
+input.number.precio:focus {
+    border: none;
+}
+.pregunta div span{
+    justify-content: end;
+    width: 30px;
+    display: flex;
+    font-size: 1.6rem;
 }
 
