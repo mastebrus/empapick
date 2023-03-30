@@ -9,21 +9,32 @@ html {
     background-color: var(--backgroundcolor);
     color:white;
     text-shadow: 4px 3px 2px var(--shadow);
+    min-width: 500px;
 }
 body{
-    margin:0;
+
+    margin: auto;
+    max-width: 600px;
+    position: relative;
+    
 }
-header {
+header, #back-header {
+    margin: auto;
+    margin-top: 50px;
     position: fixed;
     top: 0;
     width: 100%;
     height: 200px;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     background-color: var(--backgroundcolor);
+}
+header{
+    z-index: 1;
+    margin-top: 50px;
+    border: 2px solid white;
 }
 h1{
     font-family: 'Orbitron', sans-serif;
@@ -39,19 +50,23 @@ h4{
     font-weight: 400;
 }
 main{
-    position: relative;
-    margin-top: 200px;
-    margin: 200px 8px 8px;
+    /* position: relative; */
+    margin-top: 204px;
+    min-width: 410px;
+
+    
 }
 #pantalla-1{
-    width: 100%;
-    height: 60vh;
+    border: 2px solid white;
+    max-width: 600px;
+    margin: auto;
     display: flex;
     flex-direction: column;
+    padding: 5%;
 }
 #pantalla-1 .pregunta {
     margin-inline: auto;
-    padding: 40px 20px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -88,13 +103,19 @@ input.number:focus{
 button.menos:active, .mas:active {
     background-color: var(--focus);
 }
+i.fa-solid.fa-user-astronaut.fa-xl.nombre {
+    margin-top: 50px;
+}
 
 section#seleccion {
+    border: 2px solid white;
+    max-width: 600px;
     margin: auto;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 45px 5px;
 }
 
 .pregunta .minimo {
@@ -117,6 +138,9 @@ input.number.precio:focus {
     display: flex;
     font-size: 1.6rem;
 }
+.div-button{
+    margin:10% 0
+}
 .button-sig {
     cursor: pointer;
     display: flex;
@@ -125,13 +149,15 @@ input.number.precio:focus {
     font-size: 1rem;
     letter-spacing: 1.5px;
     padding: 5px 10px;
-    margin-top: 50px;
     font-weight: 600;
     border-radius: 8px;
     border: none;
     text-align: center;
     background-color: #3fd960;
     color: var(--backgroundcolor); 
+ }
+ .nombre{
+    padding: 0 5px
  }
  #nombre{
     color: var(--focus);
@@ -141,9 +167,28 @@ input.number.precio:focus {
     font-family: 'Orbitron';
     letter-spacing: 1px;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    width: 200px;
  }
- li{
-    list-style: none;
+ ul{
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width: 90%;
+    padding-top: 20px;
 
  }
+ li{
+    font-size: 1.1rem;
+    text-align: center;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    align-items: center;
+
+ }
+ li span {
+    align-items: center;
+    display: flex;
+}
