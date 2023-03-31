@@ -16,10 +16,10 @@
 
   <body>
     <header id="header">
-        <h1>EMPA-PICK<i class="fa-solid fa-meteor" style="color: #ffffff;"></i></h1>
-        <h4 id="h4">choose your empanadas with friends</h4><!--descripcion de la app-->
-    </header>
-    <div id="back-header"></div>
+      <h1>EMPA-PICK<i class="fa-solid fa-meteor" style="color: #ffffff;"></i></h1>
+      <h4 id="h4">choose your empanadas with friends</h4><!--descripcion de la app-->
+  </header>
+  <div id="back-header"></div>
     <main id="main">
         <section id="pantalla-1"><!--pantalla 1-->
             <div class="pregunta">
@@ -142,6 +142,9 @@
         </section style="border: solid 1px black">
         <section id="resumen"><!--pantalla 3 / resumen-->
             <h3>RESUMEN</h3>
+            <ul class="resumen-empanadas">
+              <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor" name="cant-sabor" type="number" class="number" readonly="readonly" value="0"></span></li>
+            </ul>
         </section>
     </main>
 </body>
@@ -208,6 +211,7 @@
           contador += 1;
         } else {
           empanada.nombre = inputs[index].innerText;
+          
           contador += 1;
         }
         if (contador == 2) {
@@ -250,10 +254,10 @@
       document.getElementById("seleccion").style.display = "flex";
       document.getElementById("pantalla-1").style.display = "none";
       document.getElementById("header").style.height = "100px";
-      document.getElementById("header").style.marginTop = "0";
+      // document.getElementById("header").style.marginTop = "0";
       document.getElementById('main').style.marginTop = "100px";
         document.getElementById('back-header').style.height = "100px" 
-        document.getElementById("back-header").style.marginTop = "0";
+        // document.getElementById("back-header").style.marginTop = "0";
         document.getElementById('h4').style.display = "none";
     }
 

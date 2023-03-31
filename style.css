@@ -3,6 +3,10 @@
     --focus:#3fd960;
     --shadow:#050605;
 }
+
+*{
+    box-sizing: border-box;
+}
     
 html {
     font-family: 'Montserrat', sans-serif !important;
@@ -12,17 +16,18 @@ html {
     min-width: 300px;
 }
 body{
-    margin: auto;
-    max-width: 600px;
-    position: relative;
+    height: 100vh;
+     margin: auto;
+     max-width: 600px; 
+     position: relative;  
     
 }
 header, #back-header {
-    margin-top: 50px;
-    position: fixed;
+    margin-top: 50px; 
+    position: fixed; 
     top: 0;
     width: 100%;
-    max-width: 596px;
+    max-width: 600px;
     min-width: 300px;
     height: 200px;
     display: flex;
@@ -50,9 +55,9 @@ h4{
     font-weight: 400;
 }
 main{
-    /* position: relative; */
+    position: relative;
     margin-top: 244px;
-}
+ } 
 
 #pantalla-1{
     border: 2px solid white;
@@ -64,7 +69,7 @@ main{
 }
 #pantalla-1 .pregunta {
     margin-inline: auto;
-    padding: 30px 20px;
+    padding: 70px 20px 50px;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -78,6 +83,10 @@ main{
     width: 50%;
     margin: auto;
     justify-content: space-around;
+}
+
+label{
+    font-size: 1.4rem;
 }
 input.number{
     border: none;
@@ -113,7 +122,6 @@ button.menos:active, .mas:active {
 div#user {
     display: flex;
     margin: auto;
-    padding: 10px;
 }
 
 section#seleccion {
@@ -121,6 +129,7 @@ section#seleccion {
     max-width: 600px;
     min-width: 400px;
     margin: auto;
+    margin-top: 140px;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -165,10 +174,10 @@ input.number.precio:focus {
     text-align: center;
     background-color: #3fd960;
     color: var(--backgroundcolor); 
- }
+}
  .nombre{
     padding: 0 5px
- }
+}
  #nombre{
     color: var(--focus);
     background-color: transparent;
@@ -179,7 +188,23 @@ input.number.precio:focus {
     outline: none;
     font-size: 1.2rem;
     width: 200px;
- }
+}
+
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover,
+ input:-webkit-autofill:focus,
+ textarea:-webkit-autofill,
+ textarea:-webkit-autofill:hover,
+ textarea:-webkit-autofill:focus,
+ select:-webkit-autofill,
+ select:-webkit-autofill:hover,
+ select:-webkit-autofill:focus {
+   border: 1px solid var(--backgroundcolor);
+   -webkit-text-fill-color: var(--focus);
+   -webkit-box-shadow: 0 0 0px 1000px var(--backgroundcolor) inset;
+   transition: background-color 5000s ease-in-out 0s;
+}
+
  ul{
     display: flex;
     padding: 0;
@@ -205,20 +230,45 @@ input.number.precio:focus {
 
 #resumen{
     display: none;
+    border: 2px solid white;
+    max-width: 600px;
+    flex-direction: column;
+    padding: 5%;
+    margin-top: 140px;
+}
+
+h3{
+    font-family: 'Orbitron';
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+@media (min-width: 400px){
+    header{
+        margin-top: 50px;
+    
+    }
 }
 
 @media (max-width: 400px) {
     header, #back-header{
         margin-top: 0;
         height: 150px;
-}
+    }
     main{
         margin-top: 100px;
         min-width: 400px;
     }
     section#seleccion {
-        padding: 5px 5px 40px;
+        padding: 25px 5px 40px;
         min-width: auto;
- }
- }
+        margin-top: 100px;
+    }
+    .pregunta{
+        padding-top: 60px
+    }
+    .button-sig{
+        margin: -43px auto ;
+    }
+}
  
