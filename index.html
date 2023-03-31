@@ -36,7 +36,7 @@
                 <div><span>$ </span><input class="number precio" type="number" id="comensales2"><span></span></div>
             </div>
             <div class="div-button">
-                <button class="button-sig" onClick="getVals(this)">Siguiente</button>
+                <button class="button-sig" onClick="getVals(this)" disabled>Siguiente</button>
             </div>
         </section>
         <section id="seleccion"><!--pantalla 2 / seleccion-->
@@ -78,6 +78,7 @@
                             value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></span>
                 </li>
                 
+
                 <li><label for="" class="empanada">Carne cortada a cuchillo</label><span><button class="menos" type="button"
                             onClick="restar(this)">-</button><input class="number empanada" name="carne-cortada" type="number"
                             value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li>
@@ -157,11 +158,6 @@
 
     inputs = document.getElementsByClassName('empanada');
 
-    // const comensales = document.getElementById('comensales').value;
-    // comensales.addEventListener("change",(event)=>{
-    //    console.log(event);
-    // const result=true});
-
     function sumar(el) {
       var cant = el.previousSibling.valueAsNumber;
       cant = cant + 1;
@@ -235,14 +231,15 @@
           inputs[index].value = null;
         }
       }
+      
       if (vueltas == valores[0]) {
         setFinalizar();
       }
+      scrollToTop();
     }
     function setFinalizar() {
       var boton = document.getElementById("button-seleccion");
       boton.innerText = "Finalizar";
-    //   boton.attributes.onclick.value = "informarTotales()";
       document.getElementById("resumen").style.display = "flex";
       document.getElementById("seleccion").style.display = "none";
       informarTotales();
@@ -262,8 +259,10 @@
     }
 
     function informarTotales() {
-      let total_Empas = 0;
-
+      var total_Empas = 0;
+      var resumenEmpanadas= [];
+      var resumenEmpanada = new Empanada(null, 0);
+      var primera = true;
       console.log("informa los totales");
       console.log(pedidoTotal);
 
@@ -277,17 +276,33 @@
         divComensal.appendChild(nombreComensal);
         var valor_comensal = document.createElement("input");
         let total_Comensal = 0;
-        pedido.empanadas.forEach((p) => {
+        pedido.empanadas.forEach((p) => {   
+          // if (primera){
+          //   resumenEmpanada=p;
+          //   primera=false;
+          //   resumenEmpanadas.push(resumenEmpanada);
+          //   var resumenEmpanada= new Empanada(null,0)
+          //  }else{
+          //     resumenEmpanadas.forEach((re)=>{
+          //     if (re.nombre==p.nombre){
+          //       re.cantidad=re.cantidad + p.cantidad;
+          //       resumenEmpanadas.push(resumenEmpanada);
+          //     // var resumenEmpanada= new Empanada(null,0);
+          //     }else{
+          //       resumenEmpanada=p;
+          //       resumenEmpanadas.push(resumenEmpanada);
+          //       var resumenEmpanada= new Empanada(null, 0 );
+          //     }
+          //   });
+          // }
+          console.log(resumenEmpanadas);
           total_Empas += p.cantidad * valores[1];
           total_Comensal += p.cantidad * valores[1];
-
           valor_comensal.value = total_Comensal;
-          ("");
           divComensal.appendChild(valor_comensal);
           div.appendChild(divComensal);
         });
       });
-      document.getElementById("seleccion").style.display = "none";
 
       var valor_total = document.createElement("label");
       var input_total = document.createElement("input");
@@ -296,9 +311,22 @@
       div.appendChild(valor_total);
       div.appendChild(input_total);
       document.getElementById("resumen").appendChild(div);
-
+     
       return;
     }
-    
+    function scrollToTop() {
+      window.scrollTo(0, 0);
+      console.log('back to top');
+    }
+    //js
+    function valorHandler(event) {
+      if(document.getElementById("comensales").value!=0){
+        if((event.target.valueAsNumber!=0) || (event.target.value!='')){
+        document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
+        }
+      }
+    } 
+    const valor = document.querySelector('.precio');
+    valor.addEventListener('keyup', valorHandler);
   </script>
 </html>
