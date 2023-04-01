@@ -149,6 +149,7 @@
 <script type="text/javascript">
     let pedidoTotal = []
     let valores = [];
+    let resumenEmpanadas= [];
     var inputs,
         index,
         vueltas = 0;
@@ -198,7 +199,7 @@
       for (index = 1; index < inputs.length; ++index) {
         if (index % 2 == 0) {
           if (inputs[index].value != 0) {
-            empanada.cantidad = inputs[index].value;
+            empanada.cantidad = inputs[index].valueAsNumber;
             empanadas.push(empanada);
           }
           contador += 1;
@@ -256,15 +257,15 @@
 
     function informarTotales() {
       var total_Empas = 0;
-      var resumenEmpanadas= [];
-      var resumenEmpanada = new Empanada(null, 0);
+    
       var primera = true;
-      console.log("informa los totales");
+      var exist=false;
       console.log(pedidoTotal);
 
       var div = document.createElement("div");
 
       pedidoTotal.forEach((pedido) => {
+        console.log(pedido);
         var divComensal = document.createElement("div");
         divComensal.classList.add("comensal");
         var nombreComensal = document.createElement("label");
@@ -272,26 +273,26 @@
         divComensal.appendChild(nombreComensal);
         var valor_comensal = document.createElement("input");
         let total_Comensal = 0;
+        if (primera){
+            primera=false;
+            resumenEmpanadas=pedido.empanadas;
+        }else{
+          for(j=0;j <pedido.empanadas.length;j++){
+            for(index=0;index <resumenEmpanadas.length;index++){
+              if(resumenEmpanadas[index].nombre==pedido.empanadas[j].nombre){
+              resumenEmpanadas[index].cantidad=resumenEmpanadas[index].cantidad + pedido.empanadas[j].cantidad;
+              exist=true;
+              }
+              if (!exist){
+                resumenEmpanadas.push(pedido.empanadas[j])
+              }
+              exist=false;
+              }
+            }
+          }
+        
+
         pedido.empanadas.forEach((p) => {   
-          // if (primera){
-          //   resumenEmpanada=p;
-          //   primera=false;
-          //   resumenEmpanadas.push(resumenEmpanada);
-          //   var resumenEmpanada= new Empanada(null,0)
-          //  }else{
-          //     resumenEmpanadas.forEach((re)=>{
-          //     if (re.nombre==p.nombre){
-          //       re.cantidad=re.cantidad + p.cantidad;
-          //       resumenEmpanadas.push(resumenEmpanada);
-          //     // var resumenEmpanada= new Empanada(null,0);
-          //     }else{
-          //       resumenEmpanada=p;
-          //       resumenEmpanadas.push(resumenEmpanada);
-          //       var resumenEmpanada= new Empanada(null, 0 );
-          //     }
-          //   });
-          // }
-          console.log(resumenEmpanadas);
           total_Empas += p.cantidad * valores[1];
           total_Comensal += p.cantidad * valores[1];
           valor_comensal.value = total_Comensal;
@@ -299,7 +300,7 @@
           div.appendChild(divComensal);
         });
       });
-
+      console.log(resumenEmpanadas);
       var valor_total = document.createElement("label");
       var input_total = document.createElement("input");
       valor_total.innerText = "Total";
