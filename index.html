@@ -15,21 +15,21 @@
 </head>
 
   <body>
+    <div id="container">
     <header id="header">
       <h1>EMPA-PICK<i class="fa-solid fa-meteor" style="color: #ffffff;"></i></h1>
-      <h4 id="h4">choose your empanadas with friends</h4><!--descripcion de la app-->
-  </header>
-  <div id="back-header"></div>
+      <h4 id="h4">choose your empanadas with fren2</h4><!--descripcion de la app-->
+    </header>
     <main id="main">
         <section id="pantalla-1"><!--pantalla 1-->
             <div class="pregunta">
                 <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->
-                <div><button class="menos" type="button" onClick="restar(this)"><i
+                <div class="contador"><button class="menos" type="button" onClick="restar(this)"><i
                             class="fa-solid fa-minus"></i></button><input id="comensales" class="number" type="number"
                         value='1' readonly="readonly"><button class="mas" type="button" onClick="sumar(this)"><i
                             class="fa-solid fa-plus"></i></button></div>
+                            <div id="user"><i class="fa-solid fa-user-astronaut fa-xl nombre" style="color:#ffffff"></i></div>
             </div>
-            <div id="user"><i class="fa-solid fa-user-astronaut fa-2xl nombre" style="color:#ffffff"></i></div>
             <div class="pregunta">
                 <p class="minimo">Según el lugar donde van a pedir, ingrese</p>
                 <p>valor de cada empanada</p> <!-- valor de cada empanada-->
@@ -46,13 +46,13 @@
                     <label for="carne-suave" class="empanada">Carne suave</label><span><button class="menos"
                             type="button" onClick="restar(this)">-</button><input class="number empanada"
                             name="carne-suave" type="number" value='0'><button class="mas" type="button"
-                            onClick="sumar(this)">+</button></span>
-                </li>
+                            onClick="sumar(this)">+</button>
+                </li></span>
 
                 <li><label for="" class="empanada">Carne cortada a cuchillo</label><span><button class="menos"
                             type="button" onClick="restar(this)">-</button><input class="number empanada"
                             name="carne-cortada" type="number" value='0'><button class="mas" type="button"
-                            onClick="sumar(this)">+</button></li>
+                            onClick="sumar(this)">+</button></li></span>
 
                 <li><label for="" class="empanada">Carne picante</label><span><button type="button" class="menos"
                             onClick="restar(this)">-</button><input class="number empanada" name="carne-picante"
@@ -139,15 +139,23 @@
                 </li></span>
                 <!--custom-->
             </ul>
-            <button id="button-seleccion" class="button-sig" onClick="siguiente()">Siguiente</button>
+            <span class="button-sig-2"><button id="button-seleccion" class="button-sig" onClick="siguiente()">Siguiente</button></span>
         </section style="border: solid 1px black">
         <section id="resumen"><!--pantalla 3 / resumen-->
             <h3>RESUMEN</h3>
             <ul class="resumen-empanadas">
               <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor" name="cant-sabor" type="number" class="number" readonly="readonly" value="0"></span></li>
             </ul>
+            
+            <ul class="resumen-comensales">
+              <li><label id="nom-comensal" for="cant-sabor"></label><span><input id="cant-sabor" name="cant-sabor" type="number" class="number" readonly="readonly"></span></li>
+            </ul>
+
+            <label id="total"></label><span><input class="number"></span>
+
         </section>
     </main>
+  </div>
 </body>
 <script type="text/javascript">
     let pedidoTotal = []
@@ -165,7 +173,7 @@
         if (cant<=15){
             el.previousSibling.valueAsNumber = cant;
         var bichito=document.createElement('i');
-        bichito.classList.add("fa-solid","fa-user-astronaut","fa-2xl")
+        bichito.classList.add("fa-solid","fa-user-astronaut","fa-xl")
         document.getElementById('user').appendChild(bichito);  
         }
         
@@ -250,12 +258,9 @@
       valores[1] = document.getElementById("comensales2").value;
       document.getElementById("seleccion").style.display = "flex";
       document.getElementById("pantalla-1").style.display = "none";
-      document.getElementById("header").style.height = "100px";
       // document.getElementById("header").style.marginTop = "0";
-      document.getElementById('main').style.marginTop = "100px";
-        document.getElementById('back-header').style.height = "100px" 
-        // document.getElementById("back-header").style.marginTop = "0";
-        document.getElementById('h4').style.display = "none";
+      // document.getElementById("back-header").style.marginTop = "0";
+      document.getElementById('h4').style.display = "none";
     }
 
     function informarTotales() {
@@ -266,15 +271,18 @@
       console.log("informa los totales");
       console.log(pedidoTotal);
 
-      var div = document.createElement("div");
+      // var div = document.createElement("div");
+      var ul=document.getElementsByClassName("resumen-comensales")[0];
 
       pedidoTotal.forEach((pedido) => {
-        var divComensal = document.createElement("div");
-        divComensal.classList.add("comensal");
+
+        var liComensal = document.createElement("li");
         var nombreComensal = document.createElement("label");
         nombreComensal.innerText = pedido.nombre;
-        divComensal.appendChild(nombreComensal);
+        liComensal.appendChild(nombreComensal);
+        var span=document.createElement("span")
         var valor_comensal = document.createElement("input");
+        span.appendChild(valor_comensal);
         let total_Comensal = 0;
         pedido.empanadas.forEach((p) => {   
           // if (primera){
@@ -299,8 +307,9 @@
           total_Empas += p.cantidad * valores[1];
           total_Comensal += p.cantidad * valores[1];
           valor_comensal.value = total_Comensal;
-          divComensal.appendChild(valor_comensal);
-          div.appendChild(divComensal);
+          valor_comensal.classList.add("number")
+          liComensal.appendChild(span);
+          ul.appendChild(liComensal);
         });
       });
 
@@ -308,8 +317,10 @@
       var input_total = document.createElement("input");
       valor_total.innerText = "Total";
       input_total.value = total_Empas;
-      div.appendChild(valor_total);
-      div.appendChild(input_total);
+      input_total.classList.add("number")
+      li.appendChild(valor_total);
+      li.appendChild(input_total);
+
       document.getElementById("resumen").appendChild(div);
      
       return;
