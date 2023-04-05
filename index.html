@@ -44,7 +44,7 @@
         <section id="seleccion"><!--pantalla 2 / seleccion-->
           <label for="nombre" class="label-nombre"><i class="fa-solid fa-user-astronaut fa-xl nombre"
               style="color:#ffffff"></i><input id="nombre" placeholder="Nombre:" name="nombre" class="nombre empanada"></label>
-          <ul>
+          <ul id="sabores">
             <li>
               <label class="empanada">Carne suave</label><span><button class="menos" type="button"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
@@ -132,16 +132,14 @@
                   class="mas" type="button" onClick="sumar(this)">+</button></li></span>
             
   <!--custom-->
-            <li><label for="custom" class="empanada"><input class="custom" type="text" name="custom"
+            <li id="li-custom" class="li-custom"><label for="custom" class="empanada"><input class="custom" type="text" name="custom"
                   placeholder="ingrese un sabor"></label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="salchichas" type="number" value='0'><button
                   class="mas" type="button" onClick="sumar(this)">+</button></li></span>
+            </ul>
+            <label for="custom" class="empanada label-custom"><button class="custom-button" onClick="addcustom(this)"> +
+                  </button></label>
             
-            <li><label for="custom" class="empanada label-custom"><button class="custom-button"> + </button></label><span><button type="button" class="menos"
-                  onClick="restar(this)">-</button><input class="number empanada" name="salchichas" type="number" value='0'><button
-                  class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-           
-          </ul>
           <span class="button-sig-2"><button id="button-seleccion" class="button-sig"
               onClick="siguiente()">Siguiente</button></span>
         </section style="border: solid 1px black">
@@ -186,8 +184,6 @@
         bichito.classList.add("fa-solid","fa-user-astronaut","fa-xl")
         document.getElementById('user').appendChild(bichito);  
         }
-        
-
     }
     function restar(el) {
         var user=document.getElementById('user');
@@ -197,9 +193,21 @@
         el.nextSibling.valueAsNumber = el.nextSibling.valueAsNumber - 1;
         user.removeChild(user.lastElementChild)
       }
-
-    
     }
+    function addcustom(el){
+      const node = document.getElementById("li-custom");
+      const clone = node.cloneNode(true);
+      document.getElementById("sabores").appendChild(clone);
+    }
+    
+    // var span=document.createElement("span")
+    //     var valor_comensal = document.createElement("input");
+    //     span.appendChild(valor_comensal);
+
+
+
+
+
     function Empanada(nombre, cantidad) {
       this.nombre = nombre;
       this.cantidad = cantidad;
