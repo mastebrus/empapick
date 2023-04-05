@@ -1,7 +1,8 @@
 :root{
     --backgroundcolor:#282727;
     --focus:#3fd960;
-    --shadow:#050605;
+    --shadow:#271828;
+    --border: #cf27af;
 }
 * {
     margin: 0;
@@ -13,23 +14,36 @@ html {
     background-color: var(--backgroundcolor);
     color:white;
     text-shadow: 4px 3px 2px var(--shadow);
-    min-width: 300px;
+    
+
 }
 body {
-    min-width: 455px;
+    min-width: 300px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    /* background-image: url('empafondo.jpg'); */
+    background-image: url('empafondo1.png');
+    background-size:cover;
 }
-#container{
+#border{
     width: 80%;
-    height: 100vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     max-width: 600px;
-    min-width: 455px;
+    
+    margin: auto;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 2.8rem #bc13fe;
+    animation: pulsate 1s infinite alternate;  
+}
+#container{
+    height: 100%;
+    display: grid;
 }
 #header{
     height: 150px;
@@ -37,36 +51,83 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    outline: 2px solid black;
+    border-bottom: 2px solid #9b71948a;
     padding: 5%;
+    background: var(--backgroundcolor);
+    
 }
+@keyframes pulsate {
+    
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        box-shadow:
+        0 0 4px #fff,
+        0 0 1px #fff, 
+        0 0 9px #fff, 
+        0 0 0px var(--border), 
+        0 0 0px var(--border), 
+        0 0 0px var(--border), 
+        0 0 10px var(--border), 
+        0 0 150px var(--border)
+    
+    }
+    
+    20%, 24%, 55% {        
+        box-shadow: none;
+    }    
+}
+
 h1{
     font-family: 'Orbitron', sans-serif;
-    font-size:2.5rem;
-    text-shadow: 4px 3px 4px #3fd96082;
+    font-size:4rem;
+    text-shadow: 4px 0px 0px #3fd960a3;
+    transition: 1s;
+}
+@media (min-width: 645px) {
+    #pantalla-1{
+        justify-content: space-evenly;
+    }
+
+}
+@media (max-width: 645px) {
+    h1{
+        font-size: 350%;
+    }
+    h4{
+        display: none;
+    }
+}
+    @media (max-width: 600px) {
+        h1{
+            font-size: 350%;
+        }
+        
+        #pantalla-1{
+            justify-content: normal
+            ;
+    
+        }
 }
 h4{
     font-family: 'Orbitron', sans-serif; 
     margin:0;
-    font-weight: 400;
+    font-weight: 340%;
 }
-#main{
-    height: 80%;
+.main{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     overflow: auto;
     text-align: center;
-    outline: 2px solid black; 
+    background-color: var(--backgroundcolor); 
 }
 #pantalla-1{
     height: 100%;
     width: 90%;
     margin: auto;
-    padding: 15% 0;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: column;;
 }
 .pregunta{
     display: flex;
@@ -74,7 +135,7 @@ h4{
     font-size: 1.7rem;
     letter-spacing: 1px;
     font-family: 'Chakra Petch', sans-serif;
-    padding: 50px 0;
+    padding-top: 95px ;
 }
 .pregunta div {
     display: flex;
@@ -204,7 +265,7 @@ span.button-sig-2 {
 #resumen{
     display: none;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 90%;
     margin: auto;
     padding: 10% 0;
