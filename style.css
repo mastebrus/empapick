@@ -197,7 +197,7 @@ div#user {
 .nombre{
     padding: 0 5px
 }
- #nombre{
+ #nombre, .custom{
     color: var(--focus);
     background-color: transparent;
     border: none;
@@ -238,6 +238,24 @@ li span, div span{
     align-items: center;
     text-align: left;
 }
+.empanada{
+    transition: 1s;
+}
+label.empanada, .label-custom{
+    margin-right: 16px;
+}
+label.empanada.label-custom {
+    align-items: center;
+    display: flex;
+}
+button.custom-button {
+    width: 100px;
+    height: 30px;
+    color: var(--focus);
+    background: var(--background);
+    font-size: 1.5rem;
+    text-align: center;
+}
 span.button-sig-2 {
     padding-bottom: 25px;
 }
@@ -265,12 +283,13 @@ h3{
     border-top: 2px solid #9b7194;
     padding-top: 25px;
 }
+input.n-resumen{
+    width: 100px;
+}
 ul.resumen-comensales li:first-of-type{
     display: none;
 }
-.empanada{
-    transition: 1s;
-}
+
 
 
 
@@ -286,9 +305,9 @@ ul.resumen-comensales li:first-of-type{
         h1{
             font-size: 350%;
         }
-        input.number{
+        /* input.number:not(.n-resumen){
             width: 50px;
-        }
+        } */
         li{
             font-size: 1.3rem;
         }
@@ -301,10 +320,14 @@ ul.resumen-comensales li:first-of-type{
             width: 30px;
             font-size: 1.8rem;
         }
-        input.number:not(.pantalla1){
+        input.number:not(.pantalla1, .n-resumen){
             width:35px;
             font-size: 1.8rem ;
         }
+        input.n-resumen{
+            font-size: 1.5rem;
+        }
+       
         input.pantalla1{
             width: 90px
         }
