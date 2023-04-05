@@ -76,38 +76,12 @@ body {
         box-shadow: none;
     }    
 }
-
 h1{
     font-family: 'Orbitron', sans-serif;
     font-size:4rem;
     text-shadow: 4px 0px 0px #3fd960a3;
     transition: 1s;
-}
-@media (min-width: 645px) {
-    #pantalla-1{
-        justify-content: space-evenly;
-    }
-
-}
-@media (max-width: 645px) {
-    h1{
-        font-size: 350%;
-    }
-    h4{
-        display: none;
-    }
-}
-    @media (max-width: 600px) {
-        h1{
-            font-size: 350%;
-        }
-        
-        #pantalla-1{
-            justify-content: normal
-            ;
-    
-        }
-}
+}    
 h4{
     font-family: 'Orbitron', sans-serif; 
     margin:0;
@@ -127,7 +101,7 @@ h4{
     width: 90%;
     margin: auto;
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
 }
 .pregunta{
     display: flex;
@@ -143,10 +117,12 @@ h4{
     margin: auto;
     justify-content: space-around;
     padding: 20px 0;
+    align-items: center
 }
 .pregunta .minimo{
     font-size: 1.2rem;
 }
+
 input.number{
     border: none;
     background-color: transparent;
@@ -156,12 +132,11 @@ input.number{
     font-size: 2rem;
     font-family: 'Chakra Petch', sans-serif;
     text-shadow: 4px 3px 2px var(--shadow);
+    transition: 1s;
 }
-
 input.number:focus{
  outline: none;
 }
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -170,6 +145,9 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+input.precio{
+            width: 90px
+        }
 .contador {
     min-width: 165px;
 }
@@ -205,7 +183,9 @@ div#user {
     background-color: #3fd960;
     color: var(--backgroundcolor); 
  }
-
+ .button-sig:disabled {
+    background-color: #425a42;
+}
 #seleccion{
     display: none;
     flex-direction: column;
@@ -216,7 +196,7 @@ div#user {
 }
 .nombre{
     padding: 0 5px
- }
+}
  #nombre{
     color: var(--focus);
     background-color: transparent;
@@ -245,29 +225,96 @@ div#user {
 ul {
     padding: 5% 0;
 }
-
 li {
     justify-content: space-between;
     display: flex;
     font-size: 1.5rem;
     list-style: none;
     align-items: center;
+    text-align: left;
 }
 li span, div span{
     display: flex;
     align-items: center;
+    text-align: left;
 }
 span.button-sig-2 {
     padding-bottom: 25px;
 }
-
-
 #resumen{
     display: none;
     flex-direction: column;
     height: 100vh;
     width: 90%;
     margin: auto;
-    padding: 10% 0;
+    padding: 5%;
 }
- 
+h2{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px var(--border);
+    
+}
+h3{
+    font-family: 'Orbitron';
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px var(--border);
+    border-top: 2px solid #9b7194;
+    padding-top: 25px;
+}
+ul.resumen-comensales li:first-of-type{
+    display: none;
+}
+.empanada{
+    transition: 1s;
+}
+
+
+
+@media (max-width: 645px) {
+    h1{
+        font-size: 350%;
+    }
+    h4{
+        display: none;
+    }
+}
+    @media (max-width: 600px) {
+        h1{
+            font-size: 350%;
+        }
+        input.number{
+            width: 50px;
+        }
+        li{
+            font-size: 1.3rem;
+        }
+     }
+    @media (max-width: 500px){
+        .pregunta{
+            padding-top: 50px;
+        }
+        .empanadas{
+            width: 30px;
+            font-size: 1.8rem;
+        }
+        input.number:not(.pantalla1){
+            width:35px;
+            font-size: 1.8rem ;
+        }
+        input.pantalla1{
+            width: 90px
+        }
+        li{
+            font-size: 1.2rem;
+            padding: 3px 0;
+        }
+        .mas:not(.pantalla1), .menos:not(.pantalla1){
+            height: 25px;
+            width: 25px;
+        }
+    } 
+

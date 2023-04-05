@@ -25,17 +25,17 @@
       <main class="main">
         <section id="pantalla-1"><!--pantalla 1-->
           <div class="pregunta">
-            <p>Cuantos gorditos van a pedir?</p> <!-- cantidad de comensales-->
-            <div class="contador"><button class="menos" type="button" onClick="restar(this)"><i
-                  class="fa-solid fa-minus"></i></button><input id="comensales" class="number" type="number" value='1'
-                readonly="readonly"><button class="mas" type="button" onClick="sumar(this)"><i
+            <p>Cuantos gorditos van a pedir?</p>
+            <div class="contador"><button class="menos pantalla1" type="button" onClick="restar(this)"><i
+                  class="fa-solid fa-minus"></i></button><input id="comensales" class="number pantalla1" type="number" value='1'
+                readonly="readonly"><button class="mas menos pantalla1" type="button" onClick="sumar(this)"><i
                   class="fa-solid fa-plus"></i></button></div>
             <div id="user"><i class="fa-solid fa-user-astronaut fa-xl nombre" style="color:#ffffff"></i></div>
           </div>
           <div class="pregunta">
             <p class="minimo">Según el lugar donde van a pedir, ingrese</p>
-            <p>valor de cada empanada</p> <!-- valor de cada empanada-->
-            <div><span>$ </span><input class="number precio" type="number" id="comensales2"><span></span></div>
+            <p>valor de cada empanada</p> 
+            <div><span>$ </span><input class="number precio pantalla1" type="number" id="comensales2"><span></span></div>
           </div>
           <div class="div-button">
             <button class="button-sig" onClick="getVals(this)" disabled>Siguiente</button>
@@ -43,33 +43,32 @@
         </section>
         <section id="seleccion"><!--pantalla 2 / seleccion-->
           <label for="nombre" class="label-nombre"><i class="fa-solid fa-user-astronaut fa-xl nombre"
-              style="color:#ffffff"></i><input id="nombre" placeholder="Nombre:" name="nombre"
-              class=" nombre empanada"></label>
+              style="color:#ffffff"></i><input id="nombre" placeholder="Nombre:" name="nombre" class=" nombre empanada"></label>
           <ul>
             <li>
               <label for="carne-suave" class="empanada">Carne suave</label><span><button class="menos" type="button"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Carne cortada a cuchillo</label><span><button class="menos" type="button"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-cortada" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-  
+        
             <li><label for="" class="empanada">Carne picante</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-picante" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Pollo</label><span><button type="button" class="menos"
-                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number"
-                  value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-  
+                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number" value='0'><button
+                  class="mas" type="button" onClick="sumar(this)">+</button></li></span>
+        
             <li><label for="" class="empanada">Pollo al verdeo</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="pollo-verdeo" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Jamón y queso</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
@@ -79,26 +78,26 @@
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></span>
             </li>
-  
-  
+        
+        
             <li><label for="" class="empanada">Carne cortada a cuchillo</label><span><button class="menos" type="button"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-cortada" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li>
-  
+        
             <li><label for="" class="empanada">Carne picante</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-picante" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Pollo</label><span><button type="button" class="menos"
-                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number"
-                  value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-  
+                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number" value='0'><button
+                  class="mas" type="button" onClick="sumar(this)">+</button></li></span>
+        
             <li><label for="" class="empanada">Pollo al verdeo</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="pollo-verdeo" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Jamón y queso</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
@@ -107,16 +106,16 @@
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-picante" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Pollo</label><span><button type="button" class="menos"
-                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number"
-                  value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-  
+                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number" value='0'><button
+                  class="mas" type="button" onClick="sumar(this)">+</button></li></span>
+        
             <li><label for="" class="empanada">Pollo al verdeo</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="pollo-verdeo" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Jamón y queso</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
@@ -125,16 +124,16 @@
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-picante" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Pollo</label><span><button type="button" class="menos"
-                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number"
-                  value='0'><button class="mas" type="button" onClick="sumar(this)">+</button></li></span>
-  
+                  onClick="restar(this)">-</button><input class="number empanada" name="pollo" type="number" value='0'><button
+                  class="mas" type="button" onClick="sumar(this)">+</button></li></span>
+        
             <li><label for="" class="empanada">Pollo al verdeo</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="pollo-verdeo" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
             </li></span>
-  
+        
             <li><label for="" class="empanada">Jamón y queso</label><span><button type="button" class="menos"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
                   value='0'><button class="mas" type="button" onClick="sumar(this)">+</button>
@@ -145,19 +144,21 @@
               onClick="siguiente()">Siguiente</button></span>
         </section style="border: solid 1px black">
         <section id="resumen"><!--pantalla 3 / resumen-->
-          <h3>RESUMEN</h3>
-          <ul class="resumen-empanadas">
-            <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor" name="cant-sabor"
-                  type="number" class="number" readonly="readonly" value="0"></span></li>
-          </ul>
-  
-          <ul class="resumen-comensales">
-            <li><label id="nom-comensal" for="cant-sabor"></label><span><input id="cant-sabor" name="cant-sabor"
-                  type="number" class="number" readonly="readonly"></span></li>
-          </ul>
-  
-          <label id="total"></label><span><input class="number"></span>
-  
+          <h2>RESUMEN</h2>
+          <div>
+            <ul class="resumen-empanadas">
+              <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor" name="cant-sabor"
+                    type="number" class="number" readonly="readonly" value="0"></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>$$</h3>
+            <ul class="resumen-comensales">
+              <li><label id="nom-comensal" for="cant-sabor"></label><span><input id="cant-sabor" name="cant-sabor" type="number"
+                    class="number" readonly="readonly"></span></li>
+            </ul>
+            <ul class="total"><label></label><span><input class="number"></span></ul>
+          </div>
         </section>
       </main>
     </div>
@@ -319,16 +320,22 @@
           ul.appendChild(liComensal);
         });
       });
-
+      console.log(input_total)
+      var ul=document.getElementsByClassName("total")[0];
+      var litotal = document.createElement("li");
       var valor_total = document.createElement("label");
-      var input_total = document.createElement("input");
       valor_total.innerText = "Total";
+      litotal.appendChild(valor_total);
+      
+      var span=document.createElement("span")
+      var input_total = document.createElement("input");
+     
       input_total.value = total_Empas;
       input_total.classList.add("number")
-      li.appendChild(valor_total);
-      li.appendChild(input_total);
+      span.appendChild(input_total);
+      
 
-      document.getElementById("resumen").appendChild(div);
+      // document.getElementById("resumen").appendChild(div);
      
       return;
     }
