@@ -19,7 +19,7 @@
     <div id="container">
 
       <header id="header">
-        <h1>EMPA-PICK<i class="fa-solid fa-meteor" style="color: #ffffff;"></i></h1>
+        <h1>EMPA-PICK<a class="meteor"><i class="fa-solid fa-meteor"></i></a></h1>
         <h4 id="h4">choose your empanadas with fren2</h4><!--descripcion de la app-->
       </header>
       <main class="main">
@@ -44,9 +44,9 @@
         </section>
         <section id="seleccion"><!--pantalla 2 / seleccion-->
           <label for="nombre" class="label-nombre"><i class="fa-solid fa-user-astronaut fa-xl nombre"
-              style="color:#ffffff"></i><input id="nombre" placeholder="Nombre:" name="nombre"
-              class=" nombre empanada"></label>
-          <ul>
+              style="color:#ffffff"></i><input id="nombre" placeholder="Nombre:" name="nombre" class="nombre empanada"></label>
+          <ul id="sabores">
+   
             <li>
               <label class="empanada">Carne suave</label><span><button class="menos" type="button"
                   onClick="restar(this)">-</button><input class="number empanada" name="carne-suave" type="number"
@@ -142,7 +142,7 @@
             </ul>
             <label for="custom" class="empanada label-custom"><button class="custom-button" onClick="addcustom(this)"> +
                   </button></label>
-          </ul>
+            
           <span class="button-sig-2"><button id="button-seleccion" class="button-sig"
               onClick="siguiente()">Siguiente</button></span>
         </section style="border: solid 1px black">
@@ -150,15 +150,17 @@
           <h2>RESUMEN</h2>
           <div>
             <ul class="resumen-empanadas">
-              <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor"
-                    name="cant-sabor" type="number" class="number" readonly="readonly" value="0"></span></li>
+
+              <li><label for="cant-sabor" id="nom-sabor">Carne Suave</label><span><input id="cant-sabor" name="cant-sabor"
+                    type="number" class="number n-resumen" readonly="readonly" value="0"></span></li>
             </ul>
           </div>
           <div>
             <h3>$$</h3>
             <ul class="resumen-comensales">
-              <li><label id="nom-comensal" for="cant-sabor"></label><span><input id="cant-sabor" name="cant-sabor"
-                    type="number" class="number" readonly="readonly"></span></li>
+
+              <li><label id="nom-comensal" for="cant-sabor"></label><span><input id="cant-sabor" name="cant-sabor" type="number"
+                    class="number n-resumen" readonly="readonly"></span></li>
             </ul>
             <ul class="total"><label></label><span><input class="number"></span></ul>
           </div>
@@ -169,6 +171,57 @@
   </div>
 </body>
 <script type="text/javascript">
+
+    let pedidoTotal = []
+    let valores = [];
+    var inputs,
+        index,
+        vueltas = 0;
+
+    inputs = document.getElementsByClassName('empanada');
+
+    function sumar(el) {
+      var cant = el.previousSibling.valueAsNumber;
+      cant = cant + 1;
+      
+        if (cant<=15){
+            el.previousSibling.valueAsNumber = cant;
+        var bichito=document.createElement('i');
+        bichito.classList.add("fa-solid","fa-user-astronaut","fa-xl")
+        document.getElementById('user').appendChild(bichito);  
+        }
+    }
+    function restar(el) {
+        var user=document.getElementById('user');
+      if (el.nextSibling.valueAsNumber < 1) {
+        return;
+      } else {
+        el.nextSibling.valueAsNumber = el.nextSibling.valueAsNumber - 1;
+        user.removeChild(user.lastElementChild)
+      }
+    }
+    function addcustom(el){
+      const node = document.getElementById("li-custom");
+      const clone = node.cloneNode(true);
+      document.getElementById("sabores").appendChild(clone);
+    }
+    
+    // var span=document.createElement("span")
+    //     var valor_comensal = document.createElement("input");
+    //     span.appendChild(valor_comensal);
+
+
+
+
+
+    function Empanada(nombre, cantidad) {
+      this.nombre = nombre;
+      this.cantidad = cantidad;
+    }
+    function PedidoComensal(nombre, empanadas) {
+      this.nombre = nombre;
+      this.empanadas = [empanadas];
+
   let pedidoTotal = []
   let valores = [];
   var inputs,
@@ -186,6 +239,7 @@
       var bichito = document.createElement('i');
       bichito.classList.add("fa-solid", "fa-user-astronaut", "fa-xl")
       document.getElementById('user').appendChild(bichito);
+
     }
 
 
@@ -305,6 +359,56 @@
             }
           }
           console.log(resumenEmpanadas);
+
+          total_Empas += p.cantidad * valores[1];
+          total_Comensal += p.cantidad * valores[1];
+          valor_comensal.value = total_Comensal;
+          valor_comensal.classList.add("number","n-resumen")
+          liComensal.appendChild(span);
+          ul.appendChild(liComensal);
+        };
+      };
+      console.log(input_total)
+      var ul=document.getElementsByClassName("total")[0];
+      var litotal = document.createElement("li");
+      var valor_total = document.createElement("label");
+      valor_total.innerText = "Total";
+      litotal.appendChild(valor_total);
+      
+      var span=document.createElement("span")
+      var input_total = document.createElement("input");
+     
+      input_total.value = total_Empas;
+      input_total.classList.add("number","n-resumen")
+      span.appendChild(input_total);
+      
+
+      // document.getElementById("resumen").appendChild(div);
+     
+      return;
+    }
+    function scrollToTop() {
+      window.scrollTo(0, 0);
+      console.log('back to top');
+    }
+    //js
+    function valorHandler(event) {
+      // if(document.getElementById("comensales").value!=0){
+      //   if(event.target.valueAsNumber!=0 && event.target.value!=''){
+      //   document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
+      //   document.getElementsByClassName("button-sig")[0].setAttribute('enabled');
+      //   }
+      // } else {
+      //   document.getElementsByClassName("button-sig")[0].removeAttribute('enabled');
+      //   document.getElementsByClassName("button-sig")[0].setAttribute('disabled');
+      // }
+      if(event.target.valueAsNumber!=0 && event.target.value!=''){
+        document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
+        document.getElementsByClassName("button-sig")[0].setAttribute('enabled');
+      } else {
+        document.getElementsByClassName("button-sig")[0].removeAttribute('enabled');
+        document.getElementsByClassName("button-sig")[0].setAttribute('disabled');
+
           // total_Empas += p.cantidad * valores[1];
           // total_Comensal += p.cantidad * valores[1];
           // valor_comensal.value = total_Comensal;
@@ -342,6 +446,7 @@
     if (document.getElementById("comensales").value != 0) {
       if ((event.target.valueAsNumber != 0) || (event.target.value != '')) {
         document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
+
       }
     }
   }
