@@ -19,7 +19,7 @@
     <div id="container">
       
       <header id="header">
-        <h1>EMPA-PICK<i class="fa-solid fa-meteor" style="color: #ffffff;"></i></h1>
+        <h1>EMPA-PICK<a class="meteor"><i class="fa-solid fa-meteor"></i></a></h1>
         <h4 id="h4">choose your empanadas with fren2</h4><!--descripcion de la app-->
       </header>
       <main class="main">
@@ -355,10 +355,21 @@
     }
     //js
     function valorHandler(event) {
-      if(document.getElementById("comensales").value!=0){
-        if((event.target.valueAsNumber!=0) || (event.target.value!='')){
+      // if(document.getElementById("comensales").value!=0){
+      //   if(event.target.valueAsNumber!=0 && event.target.value!=''){
+      //   document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
+      //   document.getElementsByClassName("button-sig")[0].setAttribute('enabled');
+      //   }
+      // } else {
+      //   document.getElementsByClassName("button-sig")[0].removeAttribute('enabled');
+      //   document.getElementsByClassName("button-sig")[0].setAttribute('disabled');
+      // }
+      if(event.target.valueAsNumber!=0 && event.target.value!=''){
         document.getElementsByClassName("button-sig")[0].removeAttribute('disabled');
-        }
+        document.getElementsByClassName("button-sig")[0].setAttribute('enabled');
+      } else {
+        document.getElementsByClassName("button-sig")[0].removeAttribute('enabled');
+        document.getElementsByClassName("button-sig")[0].setAttribute('disabled');
       }
     } 
     const valor = document.querySelector('.precio');

@@ -81,7 +81,14 @@ h1{
     font-size:4rem;
     text-shadow: 4px 0px 0px #3fd960a3;
     transition: 1s;
-}    
+} 
+.fa-meteor{
+    color:#fff;
+}
+.fa-meteor:hover{
+    color: var(--focus);
+    cursor: pointer;
+}   
 h4{
     font-family: 'Orbitron', sans-serif; 
     margin:0;
