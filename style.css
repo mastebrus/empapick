@@ -175,7 +175,7 @@ div#user {
 .div-button{
     margin:10% 0
 }
-.button-sig {
+.button-sig-1 {
     cursor: pointer;
     display: flex;
     margin: 10px auto;
@@ -190,7 +190,7 @@ div#user {
     background-color: #3fd960;
     color: var(--backgroundcolor); 
  }
- .button-sig:disabled {
+ .button-sig-1:disabled {
     background-color: #425a42;
 }
 #seleccion{
@@ -231,6 +231,10 @@ div#user {
 }
 ul {
     padding: 5% 0;
+}
+ul.total{
+    padding: 0;
+    border-top: 2px solid #9b7194;
 }
 li {
     justify-content: space-between;
@@ -290,6 +294,11 @@ h3{
     text-shadow: 1px 1px 5px var(--border);
     border-top: 2px solid #9b7194;
     padding-top: 25px;
+}
+.totalh3{
+    font-size: 1.2rem;
+    border-top: unset;
+    padding: 0;
 }
 input.n-resumen{
     width: 100px;
