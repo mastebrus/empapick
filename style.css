@@ -9,6 +9,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     font-family: 'Montserrat', sans-serif !important;
     background-color: var(--backgroundcolor);
@@ -31,7 +32,6 @@ body {
     height: 85vh;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     max-width: 600px;
     
     margin: auto;
@@ -181,7 +181,7 @@ div#user {
     cursor: pointer;
     display: flex;
     margin: 10px auto;
-    font-family: 'Orbitron';
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     letter-spacing: 1.5px;
     padding: 5px 10px;
@@ -211,7 +211,7 @@ div#user {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--shadow);
-    font-family: 'Orbitron';
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 1px;
     outline: none;
     font-size: 1.2rem;
@@ -289,7 +289,7 @@ h2{
     
 }
 h3{
-    font-family: 'Orbitron';
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: 2px;
@@ -309,8 +309,15 @@ ul.resumen-comensales li:first-of-type{
     display: none;
 }
 
+::-webkit-scrollbar {
+    background-color: var(--backgroundcolor);
+    width: 10px;
+}
 
-
+::-webkit-scrollbar-thumb {
+background: var(--border);
+border-radius: 10px;
+}
 
 @media (max-width: 645px) {
     h1{
@@ -324,9 +331,6 @@ ul.resumen-comensales li:first-of-type{
         h1{
             font-size: 350%;
         }
-        /* input.number:not(.n-resumen){
-            width: 50px;
-        } */
         li{
             font-size: 1.3rem;
         }
